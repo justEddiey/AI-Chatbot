@@ -1,4 +1,4 @@
-# Mintyn_Assesment
+# Ai Chatbot
 
 
 A Rcommendation Chatbot for movies using openAI's endpoint and embeddings on a custom Movie Dataset.
