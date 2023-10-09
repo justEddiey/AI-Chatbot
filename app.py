@@ -1,26 +1,18 @@
 import os
 from utils import index_data
+from dotenv import load_dotenv
 
 from langchain.chains import RetrievalQA
 from langchain.llms import OpenAI
 from langchain.prompts.prompt import PromptTemplate
 
 
+
 DATA_DIR = "./Data"
 CSV_FILE = "df_movies.csv"
 CSV_PATH = os.path.join(DATA_DIR, CSV_FILE)
-CUSTOM_TEMPLATE = """
-You are a helpful recommendation chatbot, recommending best movies based on description by user.
-if question doesnt contain preference or specification on what movies, ask the user for more details.
-Using the following context recommend movies to the user with detailed desccriptionse created from the movie attributes
-{context}
 
-If the question is not related to the context, politely respond that you are tuned to only answer questions that are related to .
-{question}
-"""
 
-os.environ["OPENAI_API_KEY"] = input(
-    "Paste your OpenAI key here and hit enter: ")
 
 doc_search = index_data(CSV_PATH)
 
